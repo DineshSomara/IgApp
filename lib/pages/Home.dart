@@ -1,6 +1,7 @@
+// ignore: file_names
+// ignore: depend_on_referenced_packages
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:flutter/material.dart';
-
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -10,10 +11,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   final _textContoller = TextEditingController();
 
-  String userLink = '' ;
+  String userLink = '';
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +22,8 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.purple,
-        title: Text('QR Code Generator'),
-        titleTextStyle: TextStyle(
+        title: const Text('QR Code Generator'),
+        titleTextStyle: const TextStyle(
           fontSize: 30.0,
           fontFamily: 'ArefRuqaaInk',
         ),
@@ -32,8 +32,8 @@ class _HomeState extends State<Home> {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Padding(
-            padding:  EdgeInsets.all(20.0),
+          const Padding(
+            padding: EdgeInsets.all(20.0),
             child: Text(
               'Type in the Link For QR Code',
               style: TextStyle(
@@ -50,42 +50,43 @@ class _HomeState extends State<Home> {
               backgroundColor: Colors.white,
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: TextField(
               controller: _textContoller,
               decoration: InputDecoration(
                 hintText: 'Give me the link...',
-                border: OutlineInputBorder(),
+                border: const OutlineInputBorder(),
                 suffixIcon: IconButton(
-                    onPressed: (){
+                    onPressed: () {
                       _textContoller.clear();
                     },
-                    icon: Icon(Icons.clear)),
+                    icon: const Icon(Icons.clear)),
               ),
             ),
           ),
           ElevatedButton.icon(
-            onPressed: (){
+            onPressed: () {
               setState(() {
                 userLink = _textContoller.text;
               });
             },
-            label: Text('Click Me',
+            label: const Text(
+              'Click Me',
               style: TextStyle(
                 fontSize: 20,
-              ),),
-            icon: Icon(Icons.qr_code),
+              ),
+            ),
+            icon: const Icon(Icons.qr_code),
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(onPressed: (()=>{
-        Navigator.pushNamed(context, '/inc_page')
-      }),
-        child: Icon(
-        Icons.arrow_forward,
-    ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (() => {Navigator.pushNamed(context, '/inc_page')}),
+        child: const Icon(
+          Icons.arrow_forward,
+        ),
       ),
     );
   }

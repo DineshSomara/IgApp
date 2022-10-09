@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 
 class IncPage extends StatefulWidget {
@@ -5,7 +6,6 @@ class IncPage extends StatefulWidget {
 
   @override
   State<IncPage> createState() => _IncPageState();
-
 }
 
 class _IncPageState extends State<IncPage> {
@@ -15,37 +15,39 @@ class _IncPageState extends State<IncPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Counter'),
+        title: const Text('Counter'),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('Counter value:  ${counter}',
-          style: TextStyle(
-            fontSize: 20,
-          ),),
+          Text(
+            'Counter value:  $counter',
+            style: const TextStyle(
+              fontSize: 20,
+            ),
+          ),
           Center(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
-                onPressed: (){
+                onPressed: () {
                   setState(() {
                     counter += 1;
                   });
                 },
-                child: Text('Value +1'),
+                child: const Text('Value +1'),
               ),
             ),
           ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: ((){
+        onPressed: (() {
           setState(() {
-            counter-=1;
+            counter -= 1;
           });
         }),
-        child: Icon(Icons.exposure_minus_1),
+        child: const Icon(Icons.exposure_minus_1),
       ),
     );
   }
